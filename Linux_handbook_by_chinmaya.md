@@ -3,7 +3,7 @@
 
 **Author:** Chinmaya Dalai  
 **Connect With Me:**
-- LinkedIn: linkedin.com/in/chinmaya-dalai
+- LinkedIn: linkedin.com/in/chinmayadalai
 - GitHub: github.com/chikuchinmaya
 - December 2025
 
@@ -616,7 +616,7 @@ This handbook is a comprehensive quick reference for Linux system administration
 
 ### For more information and updates, visit:
 
-- **LinkedIn:** https://www.linkedin.com/in/chinmaya-dalai
+- **LinkedIn:** https://www.linkedin.com/in/chinmayadalai
 - **GitHub:** https://github.com/chikuchinmaya
 
 ---
