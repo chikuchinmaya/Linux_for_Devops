@@ -239,3 +239,69 @@
 | `dnf history` | DNF history |
 | `apt update` | Update APT |
 | `apt upgrade` | Upgrade packages |
+
+## 11. Process Management & System Monitoring
+
+| Command | Description |
+|--------|------------|
+| `ps` | Show processes for current shell |
+| `ps -e` | Show all processes |
+| `ps aux` | Detailed process list |
+| `ps -ef` | Full-format process list |
+| `top` | Real-time process monitor |
+| `htop` | Enhanced process viewer (if installed) |
+| `atop` | Advanced system monitor |
+| `watch -n 1 date` | Run command repeatedly |
+| `uptime` | System load & uptime |
+| `tload` | Terminal load viewer |
+
+### 🔸 Process Control
+
+| Command | Description |
+|--------|------------|
+| `kill PID` | Kill process by PID |
+| `kill -9 PID` | Force kill process |
+| `kill -15 PID` | Graceful termination |
+| `killall process` | Kill process by name |
+| `pkill process` | Kill process by pattern |
+| `bg` | Resume job in background |
+| `fg` | Bring job to foreground |
+| `jobs` | List background jobs |
+| `nice -n 10 command` | Set process priority |
+| `renice -n 5 PID` | Change priority of running process |
+
+### Common Kill Signals
+
+| Signal | Meaning |
+|-------|---------|
+| `1 (SIGHUP)` | Reload configuration |
+| `9 (SIGKILL)` | Force kill |
+| `15 (SIGTERM)` | Graceful stop |
+| `18 (SIGCONT)` | Continue process |
+| `19 (SIGSTOP)` | Pause process |
+
+## CPU & Memory Monitoring
+
+| Command | Description |
+|--------|------------|
+| `free -h` | Memory usage |
+| `vmstat` | Memory stats |
+| `iostat` | CPU & disk IO |
+| `mpstat` | CPU usage per core |
+| `sar` | System activity report |
+| `uptime` | Load average |
+| `df -h` | Disk usage |
+| `du -sh *` | Directory sizes |
+
+## Network Monitoring
+
+| Command | Description |
+|--------|------------|
+| `ip a` | Network interfaces |
+| `ip r` | Routing table |
+| `ss -tulnp` | Listening ports |
+| `netstat -tulnp` | Network connections |
+| `ping google.com` | Connectivity test |
+| `traceroute google.com` | Network path |
+| `curl ifconfig.me` | Public IP |
+| `wget url` | Download file |
