@@ -1,0 +1,386 @@
+# Linux & DevOps Command 
+
+---
+
+## 1. Prerequisites for Windows Tools (Chocolatey)
+
+| Command                                       | Description                                      |
+| --------------------------------------------- | ------------------------------------------------ |
+| `choco install virtualbox --version 7.1.4 -y` | Installs VirtualBox for running virtual machines |
+| `choco install vagrant --version 2.4.3 -y`    | Installs Vagrant for VM management               |
+| `choco install git -y`                        | Installs Git version control                     |
+| `choco install corretto17jdk -y`              | Installs Amazon Corretto JDK 17                  |
+| `choco install maven -y`                      | Installs Apache Maven                            |
+| `choco install awscli -y`                     | Installs AWS CLI                                 |
+| `choco install intellijidea-community -y`     | Installs IntelliJ IDEA Community                 |
+| `choco install vscode -y`                     | Installs Visual Studio Code                      |
+| `choco install sublimetext3 -y`               | Installs Sublime Text                            |
+
+---
+
+## 2. Virtual Machine Setup (Vagrant)
+
+| Command                                          | Description                    |
+| ------------------------------------------------ | ------------------------------ |
+| `mkdir -p vagrant-vms/centos`                    | Creates CentOS VM directory    |
+| `mkdir -p vagrant-vms/ubuntu`                    | Creates Ubuntu VM directory    |
+| `cd vagrant-vms/centos`                          | Navigates to CentOS directory  |
+| `vagrant init eurolinux-vagrant/centos-stream-9` | Initializes CentOS VM          |
+| `vagrant init ubuntu/jammy64`                    | Initializes Ubuntu VM          |
+| `vagrant up`                                     | Starts the VM                  |
+| `vagrant box list`                               | Lists downloaded Vagrant boxes |
+| `vagrant status`                                 | Shows VM status                |
+| `vagrant ssh`                                    | SSH into VM                    |
+| `vagrant halt`                                   | Stops VM                       |
+| `vagrant reload`                                 | Restarts VM                    |
+| `vagrant destroy`                                | Deletes VM                     |
+| `vagrant global-status`                          | Shows all Vagrant VMs          |
+| `ip addr show / ip a`                            | Shows Linux IP configuration   |
+| `ipconfig`                                       | Shows Windows IP configuration |
+
+---
+
+## 3. Linux Fundamentals
+
+| Command               | Description             |
+| --------------------- | ----------------------- |
+| `pwd`                 | Shows current directory |
+| `mkdir`               | Creates directory       |
+| `cd`                  | Changes directory       |
+| `ls`                  | Lists files             |
+| `touch`               | Creates empty file      |
+| `cat`                 | Displays file content   |
+| `whoami`              | Shows logged-in user    |
+| `uptime`              | System running time     |
+| `free -m`             | Memory usage            |
+| `cat /etc/os-release` | OS details              |
+| `sudo -i`             | Switch to root          |
+| `sudo su`             | Become superuser        |
+
+---
+
+## 4. Text Editing with Vim
+
+| Command                   | Description                  |
+| ------------------------- | ---------------------------- |
+| `sudo yum install vim -y` | Installs Vim                 |
+| `vim file.txt`            | Opens file                   |
+| `gg / G`                  | Go to top / bottom           |
+| `w / b`                   | Move word forward / backward |
+| `5w / 3b`                 | Move multiple words          |
+| `u / Ctrl+r`              | Undo / Redo                  |
+| `yy / 4yy`                | Copy lines                   |
+| `p / P`                   | Paste                        |
+| `dw`                      | Delete word                  |
+| `x / X`                   | Delete character             |
+| `dd / 5dd`                | Delete lines                 |
+| `/pattern`                | Search                       |
+| `:w / :q / :wq`           | Save / Quit                  |
+| `:set nu / nonu`          | Show / hide line numbers     |
+
+---
+
+## 5. Text Processing & Filtering
+
+| Command                  | Description         |
+| ------------------------ | ------------------- |
+| `grep "root"`            | Search text         |
+| `grep -i`                | Case-insensitive    |
+| `grep -v`                | Exclude matches     |
+| `less / more`            | View file           |
+| `head / tail`            | File start / end    |
+| `cut -d:`                | Column extraction   |
+| `awk '{print $1}'`       | Prints first column |
+| `sed 's/old/new/g'`      | Replace text        |
+| `ls \| wc -l`            | Count files         |
+| `ps aux \| grep java`    | Java process        |
+| `tail log \| grep error` | Log filtering       |
+
+---
+
+## 6. Finding Files
+
+| Command                | Description      |
+| ---------------------- | ---------------- |
+| `find /etc -name host` | Find file        |
+| `find -type f`         | Files only       |
+| `find -type d`         | Directories only |
+| `find -size +100M`     | Large files      |
+| `find -size -10M`      | Small files      |
+| `yum install mlocate`  | Install locate   |
+| `updatedb`             | Update DB        |
+| `locate file`          | Fast search      |
+
+---
+
+## 7. User & Group Management
+
+| Command             | Description     |
+| ------------------- | --------------- |
+| `useradd / adduser` | Create user     |
+| `passwd user`       | Set password    |
+| `id user`           | User info       |
+| `su - user`         | Switch user     |
+| `groupadd group`    | Create group    |
+| `usermod -aG`       | Add to group    |
+| `userdel -r`        | Delete user     |
+| `groupdel`          | Delete group    |
+| `last`              | Login history   |
+| `who`               | Logged-in users |
+
+---
+
+## 8. File Permissions
+
+| Command               | Description         |
+| --------------------- | ------------------- |
+| `chmod u+r`           | Add read permission |
+| `chmod g-w`           | Remove write        |
+| `chmod 755`           | rwxr-xr-x           |
+| `chmod 644`           | rw-r--r--           |
+| `chmod 700`           | Owner only          |
+| `chown user`          | Change owner        |
+| `chgrp group`         | Change group        |
+| `chown -R user:group` | Recursive ownership |
+
+---
+
+## 9. Quick Reference
+
+| Command          | Description        |
+| ---------------- | ------------------ |
+| `cd -`           | Previous directory |
+| `ls -la`         | Detailed list      |
+| `rm / rm -r`     | Delete             |
+| `cp / cp -r`     | Copy               |
+| `mv`             | Move / rename      |
+| `du -sh`         | Directory size     |
+| `uname -a`       | Kernel info        |
+| `df -h`          | Disk usage         |
+| `top`            | Process monitor    |
+| `lsb_release -a` | OS info            |
+
+---
+
+## 10. System Administration
+
+### 10.1 Sudo
+
+| Command             | Description  |
+| ------------------- | ------------ |
+| `sudo -i`           | Root shell   |
+| `export EDITOR=vim` | Set editor   |
+| `visudo`            | Edit sudoers |
+
+### 10.2 Software Management
+
+| Command             | Description        |
+| ------------------- | ------------------ |
+| `rpm -qa`           | List RPM packages  |
+| `dpkg -l`           | List DEB packages  |
+| `rpm -ivh`          | Install RPM        |
+| `dpkg -i`           | Install DEB        |
+| `yum / dnf install` | Install software   |
+| `yum / dnf update`  | Update system      |
+| `yum / dnf remove`  | Remove packages    |
+| `apt update`        | Update Ubuntu repo |
+
+# Linux & DevOps Command
+
+## 1. Prerequisites for Windows Tools (Chocolatey)
+
+| Command                                       | Description                                                         |
+| --------------------------------------------- | ------------------------------------------------------------------- |
+| `choco install virtualbox --version 7.1.4 -y` | Installs VirtualBox (specific version) for running virtual machines |
+| `choco install vagrant --version 2.4.3 -y`    | Installs Vagrant to manage virtual machines                         |
+| `choco install git -y`                        | Installs Git version control system                                 |
+| `choco install corretto17jdk -y`              | Installs Amazon Corretto JDK 17                                     |
+| `choco install maven -y`                      | Installs Apache Maven build tool                                    |
+| `choco install awscli -y`                     | Installs AWS Command Line Interface                                 |
+| `choco install intellijidea-community -y`     | Installs IntelliJ IDEA Community Edition                            |
+| `choco install vscode -y`                     | Installs Visual Studio Code editor                                  |
+| `choco install sublimetext3 -y`               | Installs Sublime Text editor                                        |
+
+---
+
+## 2. Virtual Machine Setup (Vagrant)
+
+| Command                                          | Description                                      |
+| ------------------------------------------------ | ------------------------------------------------ |
+| `mkdir -p vagrant-vms/centos`                    | Creates directory for CentOS VMs                 |
+| `mkdir -p vagrant-vms/ubuntu`                    | Creates directory for Ubuntu VMs                 |
+| `cd vagrant-vms/centos`                          | Navigates to CentOS VM directory                 |
+| `vagrant init eurolinux-vagrant/centos-stream-9` | Initializes Vagrantfile with CentOS Stream 9 box |
+| `vagrant init ubuntu/jammy64`                    | Initializes Vagrantfile with Ubuntu 22.04        |
+| `vagrant up`                                     | Starts and provisions the VM                     |
+| `vagrant box list`                               | Lists all downloaded Vagrant boxes               |
+| `vagrant status`                                 | Shows VM running state                           |
+| `vagrant ssh`                                    | Connects to VM via SSH                           |
+| `vagrant halt`                                   | Gracefully shuts down the VM                     |
+| `vagrant reload`                                 | Restarts VM and reloads configuration            |
+| `vagrant destroy`                                | Deletes VM completely                            |
+| `vagrant global-status`                          | Shows status of all Vagrant VMs                  |
+| `ip addr show / ip a`                            | Displays network interfaces (Linux)              |
+| `ipconfig`                                       | Displays network info (Windows)                  |
+
+---
+
+## 3. Linux Fundamentals
+
+| Command               | Description                     |
+| --------------------- | ------------------------------- |
+| `pwd`                 | Shows current working directory |
+| `mkdir`               | Creates a directory             |
+| `cd`                  | Changes directory               |
+| `ls`                  | Lists files and directories     |
+| `touch`               | Creates empty file              |
+| `cat`                 | Displays file content           |
+| `whoami`              | Shows current logged-in user    |
+| `uptime`              | Shows system running time       |
+| `free -m`             | Displays memory usage in MB     |
+| `cat /etc/os-release` | Shows OS version information    |
+| `ip addr show / ip a` | Shows IP and network details    |
+| `sudo -i`             | Switches to root user           |
+| `sudo su`             | Switches to superuser           |
+
+---
+
+## 4. Text Editing with Vim
+
+| Command                   | Description                   |
+| ------------------------- | ----------------------------- |
+| `sudo yum install vim -y` | Installs Vim editor           |
+| `vim filename.txt`        | Opens file in Vim             |
+| `gg`                      | Moves cursor to top           |
+| `G`                       | Moves cursor to bottom        |
+| `w / b`                   | Moves word forward / backward |
+| `5w / 3b`                 | Moves multiple words          |
+| `u`                       | Undo last change              |
+| `Ctrl + r`                | Redo undone change            |
+| `yy / 4yy`                | Copies 1 or multiple lines    |
+| `p / P`                   | Pastes after / before cursor  |
+| `dw`                      | Deletes a word                |
+| `x / X`                   | Deletes character             |
+| `dd / 5dd`                | Deletes 1 or multiple lines   |
+| `/pattern`                | Searches text                 |
+| `Esc + w`                 | Saves file                    |
+| `Esc + q`                 | Quits Vim                     |
+| `Esc + wq`                | Save and quit                 |
+| `Esc + w!`                | Force save                    |
+| `Esc + wq!`               | Force save and quit           |
+| `Esc + x / X`             | Save and exit                 |
+| `Esc + 20n`               | Jumps to line 20              |
+| `:set nu`                 | Shows line numbers            |
+| `:set nonu`               | Hides line numbers            |
+
+---
+
+## 5. Text Processing & Filtering
+
+| Command                   | Description                 |                        |
+| ------------------------- | --------------------------- | ---------------------- |
+| `grep "root" /etc/passwd` | Searches for word "root"    |                        |
+| `grep -i "ROOT"`          | Case-insensitive search     |                        |
+| `grep -v "root"`          | Excludes matching lines     |                        |
+| `less / more`             | Paged file viewing          |                        |
+| `head / tail`             | Shows start / end of file   |                        |
+| `cut -d: -f1`             | Extracts first column       |                        |
+| `awk '{print $1}'`        | Prints first column         |                        |
+| `:s/old/new/g`            | Replace text (current line) |                        |
+| `:%s/old/new/g`           | Replace text (entire file)  |                        |
+| `sed 's/tech/tools/g'`    | Stream text replacement     |                        |
+| `ls                       | wc -l`                      | Counts number of files |
+| `ps aux                   | grep java`                  | Finds Java processes   |
+| `tail /var/log/messages   | grep error`                 | Filters log errors     |
+
+---
+
+## 6. Finding Files
+
+| Command                | Description                   |
+| ---------------------- | ----------------------------- |
+| `find /etc -name host` | Finds file named host         |
+| `find -type f`         | Searches only files           |
+| `find -type d`         | Searches directories          |
+| `find -size +100M`     | Finds files larger than 100MB |
+| `find -size -10M`      | Finds files smaller than 10MB |
+| `yum install mlocate`  | Installs locate utility       |
+| `updatedb`             | Updates file index            |
+| `locate filename`      | Fast file search              |
+
+---
+
+## 7. User and Group Management
+
+| Command              | Description           |
+| -------------------- | --------------------- |
+| `useradd / adduser`  | Creates user          |
+| `passwd username`    | Sets user password    |
+| `id username`        | Shows user ID details |
+| `su - username`      | Switches user         |
+| `groupadd groupname` | Creates group         |
+| `usermod -aG`        | Adds user to group    |
+| `userdel -r`         | Deletes user and home |
+| `groupdel`           | Deletes group         |
+| `last`               | Shows login history   |
+| `who`                | Shows logged-in users |
+
+---
+
+## 8. File Permissions
+
+| Command               | Description                  |
+| --------------------- | ---------------------------- |
+| `chmod u+r`           | Adds read permission to user |
+| `chmod g-w`           | Removes write from group     |
+| `chmod o-x`           | Removes execute from others  |
+| `chmod 755`           | rwx r-x r-x                  |
+| `chmod 644`           | rw- r-- r--                  |
+| `chmod 700`           | Owner only access            |
+| `chown user file`     | Changes owner                |
+| `chgrp group file`    | Changes group                |
+| `chown -R user:group` | Recursive ownership change   |
+
+---
+
+## 9. Quick Reference Cheatsheet
+
+| Command          | Description                      |
+| ---------------- | -------------------------------- |
+| `cd -`           | Switch to previous directory     |
+| `ls -la`         | Lists all files with permissions |
+| `rm / rm -r`     | Deletes file / directory         |
+| `cp / cp -r`     | Copies file / directory          |
+| `mv`             | Moves or renames                 |
+| `du -sh`         | Directory size                   |
+| `uname -a / -m`  | Kernel / architecture            |
+| `df -h`          | Disk usage                       |
+| `top`            | Real-time process monitor        |
+| `lsb_release -a` | Linux distribution details       |
+
+---
+
+## 10. System Administration Cheatsheet
+
+### 10.1 Sudo
+
+| Command             | Description                |
+| ------------------- | -------------------------- |
+| `sudo -i`           | Root login shell           |
+| `export EDITOR=vim` | Sets Vim as default editor |
+| `visudo`            | Safely edits sudoers file  |
+
+### 10.2 Software Management
+
+| Command              | Description                    |
+| -------------------- | ------------------------------ |
+| `rpm -qa`            | Lists RPM packages             |
+| `dpkg -l`            | Lists Debian packages          |
+| `rpm -ivh`           | Installs RPM                   |
+| `dpkg -i`            | Installs DEB                   |
+| `yum / dnf install`  | Installs packages (RHEL)       |
+| `yum / dnf update`   | Updates system                 |
+| `yum / dnf remove`   | Removes packages               |
+| `yum / dnf repolist` | Lists repositories             |
+| `apt update`         | Updates package index (Ubuntu) |
+
